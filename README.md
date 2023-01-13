@@ -1,1 +1,1 @@
-# lpl-financial-hackathon
+# reddit-paper-trading
