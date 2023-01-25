@@ -1,3 +1,15 @@
-# reddit-paper-trading
+![](static/💵_Sentiment_Trader💱.png)
 
-#alex was here
+## Requirements
+- python
+- pip
+
+## Installation
+```shell
+pip install -r requirements.txt
+```
+
+## Usage
+```shell
+python manage.py runserver
+```
