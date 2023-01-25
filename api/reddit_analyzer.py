@@ -14,7 +14,7 @@ from collections import defaultdict
 import configparser
 
 # collection of stock symbols
-STOCK_SYMBOLS_CSV = "https://raw.githubusercontent.com/sosoUtopia/reddit-paper-trading/main/reddit_paper_trader/static/stocks.csv"
+STOCK_SYMBOLS_CSV = "./static/stocks.csv"
 
 symbols = None
 symbols = set(pd.read_csv(STOCK_SYMBOLS_CSV)["Symbol"])
