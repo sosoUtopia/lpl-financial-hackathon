@@ -3,7 +3,6 @@
 ## Requirements
 - python
 - pip
--test
 
 ## Installation
 ```shell
