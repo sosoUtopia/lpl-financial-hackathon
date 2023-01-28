@@ -18,4 +18,4 @@ def subreddit_comments(request, pk):
 
 @api_view(['GET'])
 def home(request):
-    return Response(['subreddit'])
+    return Response(['subreddit', 'comments'])
