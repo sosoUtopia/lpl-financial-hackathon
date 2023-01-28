@@ -5,7 +5,12 @@ from pprint import pprint
 
 trading_client = TradingClient('PKQC3TFPFRRETRPNQ46H', '3FU0CyoxGTPhIah10CP0LWVg3ldDN8XCVvhcWPQV', paper=True)
 account = trading_client.get_account()
-pprint(account)
+
+# pprint(account)
+
+#preparing the orders
+#params: qty:[double] -> amt to buy
+#        notional:[double] -> $amt to by
 # market_order_data = MarketOrderRequest(
 #                     symbol="SPY",
 #                     qty=0.023,
@@ -13,7 +18,7 @@ pprint(account)
 #                     time_in_force=TimeInForce.DAY
 #                     )
 
-# # Market order
+# Placing market order
 # market_order = trading_client.submit_order(
 #                 order_data=market_order_data
 #                )

@@ -9,8 +9,8 @@ from textblob import TextBlob
 # pandas
 import pandas as pd
 
+# python
 from collections import defaultdict
-
 import configparser
 
 # collection of stock symbols
@@ -18,16 +18,9 @@ STOCK_SYMBOLS_CSV = "./static/stocks.csv"
 
 symbols = None
 symbols = set(pd.read_csv(STOCK_SYMBOLS_CSV)["Symbol"])
-# with open(STOCK_SYMBOLS_CSV):
-#     symbols = set(pd.read_csv(STOCK_SYMBOLS_CSV)["Symbol"])
+
 config = configparser.ConfigParser()
 config.read('api/config.ini')
-
-# reddit = praw.Reddit(
-#     client_id="BoDa6KhOg74QQc9A18Ph_g",
-#     client_secret="mMAHfTsDDXYPm7Jkr3prv3KsSKIkWA",
-#     user_agent="Stocker 1.0 by u/unknown",
-# )
 
 reddit = praw.Reddit(
     client_id=config['reddit']['client_id'],
@@ -41,6 +34,7 @@ class RedditAnalyzer():
   def __init__(self, reddit: praw.Reddit = reddit):
     self.__reddit = reddit
     self.__sentiments = defaultdict(lambda: 0)
+    self.__comments = []
   
   def analyze(self, subreddit: str, limit=1):
     submission: Submission  
@@ -50,15 +44,21 @@ class RedditAnalyzer():
         try:
           for word in comment.body.replace("*", '').replace("$", '').split():
             if word in symbols:
-                self.__sentiments[word] += TextBlob(comment.body).polarity
+              polarity = TextBlob(comment.body).polarity
+              self.__sentiments[word] += polarity
+              self.__comments.append({
+                'comment': comment.body, 
+                'symbol': word,
+                'sentiment': polarity
+              })
+              break
         except AttributeError as e:
             pass
-
-  def makeModels(self):
-    pass
   
   @property
   def sentiments(self):
     return self.__sentiments
 
-# instance of reddit
+  @property
+  def comments(self):
+    return self.__comments
