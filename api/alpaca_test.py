@@ -8,26 +8,20 @@ account = trading_client.get_account()
 
 # pprint(account)
 
-#preparing the orders
-#params: qty:[double] -> amt to buy
-#        notional:[double] -> $amt to by
-# market_order_data = MarketOrderRequest(
-#                     symbol="SPY",
-#                     qty=0.023,
-#                     side=OrderSide.BUY,
-#                     time_in_force=TimeInForce.DAY
-#                     )
+def buyStock(stockName, quantity): 
+   # preparing the orders
+   # params: qty:[double] -> amt to buy
+   #         notional:[double] -> $amt to by
+   market_order_data = MarketOrderRequest(
+                     symbol= stockName,
+                     qty = quantity,
+                     side=OrderSide.BUY,
+                     time_in_force=TimeInForce.GTC
+                     )
 
-# Placing market order
-# market_order = trading_client.submit_order(
-#                 order_data=market_order_data
-#                )
+   # Placing market order
+   market_order = trading_client.submit_order(
+                  order_data=market_order_data
+                  )
 
-request_params = GetOrdersRequest(
-                    status=QueryOrderStatus.ALL,
-                    side=OrderSide.BUY
-                 )
 
-# orders that satisfy params
-orders = trading_client.get_orders(filter=request_params)
-pprint(orders)
