@@ -18,19 +18,41 @@
 .order-sub-container {
   display: flex;
   flex-direction: column;
-  gap: 0.125em;
+  gap: 0.16em;
 }
 
 .order-sub-container > input {
   width: 4em;
-  border-radius: 0.5em;
+  border-radius: 9999px;
   border-width: 0.125em;
-  background: ;
+  background: var(--HeavyBlue);
+  padding: 0.2rem;
 }
 
 .order-sub-container > button {
   padding: 0.75em 1em;
   width: 8em;
-  border-radius: 0.5em;
   border: none;
+  cursor: pointer;
+  border-radius: 9999px;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+button:hover {
+  transform: scale(1.08);
+  opacity: 0.8;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-duration: 200ms;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+#buyBtn {
+  background: var(--MidBlue);
+}
+#sellBtn {
+  background: var(--Purple);
 }
