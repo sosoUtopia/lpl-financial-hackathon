@@ -1,0 +1,15 @@
+form {
+ background-color: orange;
+}
+.searchbar{
+    background-color: red;
+}
+label{
+    background-color: purple;
+}
+input{
+    background-color: #C1C8E4;
+    border-radius: 8px;
+    border-width: 1px;
+    width: 300px;
+}

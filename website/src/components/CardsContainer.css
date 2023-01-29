@@ -1,0 +1,9 @@
+.cards-container {
+    background: coral;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: max-content;
+    column-gap: 8em;
+    row-gap: 6em;
+    width: 50vw;
+}
