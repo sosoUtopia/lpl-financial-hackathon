@@ -7,13 +7,13 @@ import datetime as dt
 @api_view(['GET'])
 def subreddit(request, pk):
     analyzer = RedditAnalyzer()
-    analyzer.analyze(pk, limit=request.GET.get('limit', 1))
+    analyzer.analyze(pk, limit=int(request.GET.get('limit', 1)))
     return Response(analyzer.sentiments)
 
 @api_view(['GET'])
 def subreddit_comments(request, pk):
     analyzer = RedditAnalyzer()
-    analyzer.analyze(pk, limit=request.GET.get('limit', 1))
+    analyzer.analyze(pk, limit=int(request.GET.get('limit', 1)))
     return Response(analyzer.comments)
 
 @api_view(['GET'])

@@ -9,13 +9,18 @@ const SearchBar = () =>(
         <label htmlFor="header-search">
             <span className="visually-hidden"></span>
         </label>
-        <input
-            type="text"
-            id="header-search"
-            placeholder="Search subreddits"
-            name="s" 
-        />
-        <button type="submit">Search</button>
+        <div className= 'search'>
+            <input
+                type="text"
+                id="header-search"
+                placeholder="Search subreddits"
+                name="s" 
+            />
+        </div>
+        <div className= 'button3'>
+            <button type="submit">Search</button>
+        </div>
+        
         </form>
     </div>
     

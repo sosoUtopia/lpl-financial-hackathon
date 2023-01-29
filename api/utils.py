@@ -1,4 +1,4 @@
-from base.models import StockSentiment, StockComment
+from .models import StockSentiment, StockComment
 from .reddit_analyzer import RedditAnalyzer
 import datetime as dt
 

@@ -1,43 +1,3 @@
-<<<<<<< HEAD
-
-
-
-.card-container {
-    background: lightblue;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    padding: 1em;
-    border-radius: .5em;
-    box-shadow: .25em .25em .25em .25em rgba(0, 0, 0, .125);
-}
-
-.order-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0 3%;
-}
-
-.order-sub-container {
-    display: flex;
-    flex-direction: column;
-    gap: .125em;
-}
-
-.order-sub-container > input {
-    width: 4em;
-    border-radius: .5em;
-    border-width: .125em;
-}
-
-.order-sub-container > button{
-    padding: .75em 1em;
-    width: 8em;
-    border-radius: .5em;
-    border: none;
-}
-=======
 .card-container {
   background: lightblue;
   display: flex;
@@ -74,4 +34,3 @@
   border-radius: 0.5em;
   border: none;
 }
->>>>>>> 64f1b3764f052171076e4a2f398a915bbc75a28a

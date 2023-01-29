@@ -1,15 +1,31 @@
 form {
- background-color: orange;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 5px;
+
+} 
+.button3{
+    border-radius: 10px;
+    padding: 3px;
 }
 .searchbar{
-    background-color: red;
+    display: flex;
+    justify-content: space-around;
+    padding: 30px;
 }
-label{
-    background-color: purple;
+.submit{
+    padding: 50px;
 }
 input{
+    
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
     background-color: #C1C8E4;
     border-radius: 8px;
-    border-width: 1px;
-    width: 300px;
+    border-width: 3px;
+    width: 350px;
+    
 }
