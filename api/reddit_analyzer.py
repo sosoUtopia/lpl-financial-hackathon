@@ -47,6 +47,7 @@ class RedditAnalyzer():
               polarity = TextBlob(comment.body).polarity
               self.__sentiments[word] += polarity
               self.__comments.append({
+                'title': submission.title,
                 'comment': comment.body, 
                 'symbol': word,
                 'sentiment': polarity

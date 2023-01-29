@@ -2,15 +2,19 @@ import React, {useState} from 'react';
 import {InputBase} from '@mui/material';
 import {Typography} from '@mui/material';
 import './SearchBar.css'
-
-const SearchBar = () =>(
+interface SearchBarProp{fetchData: (subreddit: string) => void}
+const SearchBar = ({fetchData}:SearchBarProp) =>{
+    const [query,setQuery] = useState('')
+    return(
     <div className='searchbar'>
-        <form action="/" method="get">
+       <div className = 'search-container'>
         <label htmlFor="header-search">
             <span className="visually-hidden"></span>
         </label>
         <div className= 'search'>
             <input
+                value={query}
+                onChange={(e)=>{setQuery(e.target.value)}}
                 type="text"
                 id="header-search"
                 placeholder="Search subreddits"
@@ -18,12 +22,13 @@ const SearchBar = () =>(
             />
         </div>
         <div className= 'button3'>
-            <button type="submit">Search</button>
+            <button onClick={()=>(fetchData(query))} type="submit">Search</button>
+            
         </div>
-        
-        </form>
+        </div>
+ 
     </div>
     
-);
+)};
 
 export default SearchBar;

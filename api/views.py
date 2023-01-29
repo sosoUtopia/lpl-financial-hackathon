@@ -2,6 +2,7 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .reddit_analyzer import RedditAnalyzer
+from .alpaca_test import buyStock, sellStock
 import datetime as dt
 
 @api_view(['GET'])
@@ -19,3 +20,15 @@ def subreddit_comments(request, pk):
 @api_view(['GET'])
 def home(request):
     return Response(['subreddit', 'comments'])
+
+@api_view(['POST'])
+def buy(request, symbol):
+    quantity = request.GET.get('qty', 1)
+    buyStock(symbol, quantity)
+    return Response(f'bought {symbol}')
+
+@api_view(['POST'])
+def sell(request, symbol):
+    quantity = request.GET.get('qty', 1)
+    sellStock(symbol, quantity)
+    return Response(f'sold {symbol}')

@@ -12,28 +12,27 @@ function App() {
 
   async function fetchData(subreddit: string) {
     let response = await axios.get(
-      `http://127.0.0.1:8000/subreddit/comments/${subreddit}?limit=3`
+      `http://127.0.0.1:8000/subreddit/comments/${subreddit}?limit=2`
     );
     let data = await response.data;
     setData(data);
   }
 
+
+
   useEffect(() => {
     fetchData("wallstreetbets");
   }, []);
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
-
   return (
     <div className="App">
       <Header />
-      <SearchBar/>
+      <SearchBar fetchData={fetchData}/>
       <CardsContainer>
         {data
           ? data.map((element: any) => (
               <Card
+                title={element.title}
                 comment={element.comment}
                 sentiment={element.sentiment}
                 symbol={element.symbol}
