@@ -16,11 +16,11 @@ const Card = ({ symbol, sentiment, comment }: CardProp) => {
       <div className="order-container">
         <div className="order-sub-container">
           <input placeholder="QTY" />
-          <button>Buy</button>
+          <button id="buyBtn">Buy</button>
         </div>
         <div className="order-sub-container">
           <input placeholder="QTY" />
-          <button>Sell</button>
+          <button id="sellBtn">Sell</button>
         </div>
       </div>
     </div>

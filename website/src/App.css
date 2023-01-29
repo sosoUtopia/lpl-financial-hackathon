@@ -1,9 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&family=Roboto:wght@100&family=Work+Sans&display=swap");
 
+:root {
+  --LightBlue: #84ceeb;
+  --Purple: #8860d0;
+  --LightPurple: #c1c8e4;
+  --MidBlue: #5ab9ea;
+  --HeavyBlue: #5680e9;
+}
+
 html {
   height: 100%;
   width: 100%;
-  background: #cbc3e3;
+  background: #c1c8e4;
 }
 body {
   font-family: "Work Sans", sans-serif;
@@ -19,6 +27,15 @@ html {
   height: 52px;
   object-fit: scale-down;
   padding: 0.5em;
+}
+.icons:hover,
+.iconAlpaca:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  opacity: 0.8;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-duration: 200ms;
 }
 .iconAlpaca {
   width: 46px;
@@ -40,7 +57,7 @@ html {
   padding: 1.5rem;
   height: 2rem;
   width: auto;
-  background-color: #6495ed;
+  background-color: var(--HeavyBlue);
   font-family: "Lora", serif;
 }
 .navBar h1 {
