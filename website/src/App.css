@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&family=Roboto:wght@100&family=Work+Sans&display=swap");
+
+html {
+  height: 100%;
+  width: 100%;
+}
+body {
+  font-family: "Work Sans", sans-serif;
+}
+body,
+html {
+  margin: 0px;
+  padding: 0px;
+}
+
+.icons {
+  width: 52px;
+  height: 52px;
+  object-fit: scale-down;
+  padding: 0.5em;
+}
+.iconAlpaca {
+  width: 46px;
+  height: 46px;
+  padding: 0.5em;
+}
+
+.iconsRight {
+  display: flex;
+  gap: 1.4em;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  height: 2rem;
+  width: auto;
+  background-color: #6495ed;
+  font-family: "Lora", serif;
+}
+.navBar h1 {
+  font-size: 2em;
+}
