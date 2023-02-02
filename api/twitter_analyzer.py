@@ -43,21 +43,52 @@ class TwitterAnalyzer:
         self.__sentiments = {}
     
     def analyze(self, keywords : str = keywords, result_type : str = result_type, limit : int = limit):
+
+        # twitter cursor object and creat a set of tags with twitter tags
         tweets = tweepy.Cursor(self.__twitter.search_tweets, q=keywords, count=limit, tweet_mode='extended', result_type=result_type).items(limit)
         tags = set(('#', '$', '@'))
+        
+        '''
+        loop through every tweets
+        create a set for visited tickers for current tweet so the ticker under the same tweet won't be analyzed twice
+        temporary word variable to store every words in the body text
+        '''
         for tweet in tweets:
             visited_tickers = set()
             word : string
+
+            '''
+            check every word in the body text of the tweet
+            if the first character of the word is a tag prefix, 
+            remove the prefix and end pronounciations to check if is a stock symbol
+            '''
             for word in tweet.full_text.split():
                 if word[0] in tags:
+                    ticker : string
                     tag_type = word[0]
                     ticker = word.removeprefix(tag_type)
                     ticker.rstrip(string.punctuation)
+                    '''
+                    if the ticker is in symbols and not visited yet
+                    add the ticker symbol in the set 
+                    get the polarity of the text body
+                    '''
                     if ticker in symbols and ticker not in visited_tickers:
                         visited_tickers.add(ticker)
                         user = tweet.user.screen_name
                         full_text = tweet.full_text
-                        polarity = TextBlob(tweet.full_text).polarity
+                        polarity = TextBlob(full_text).polarity
+                        
+                        '''
+                            if the ticker is already analyzed from another tweet,
+                            append the current tweet's user, text, and polarity 
+                            to the list of individual text for the symbol,
+                            then recalculate the average polarity for this symbol
+
+                            If not analyzed already, create the symbol as the key,
+                            and create a list of individual tweets under that symbol
+                        '''
+
                         if self.__sentiments.get(ticker):
                             self.__sentiments[ticker]["individual"].append({
                                 "user": user, 
