@@ -97,7 +97,7 @@ class TwitterAnalyzer:
     def sentiments(self):
         return self.__sentiments
 
-twitter_analyzer = TwitterAnalyzer()
-twitter_analyzer.analyze(keywords, "mixed", limit)
-sentiments = twitter_analyzer.sentiments
-pprint(sentiments)
+# twitter_analyzer = TwitterAnalyzer()
+# twitter_analyzer.analyze(keywords, "mixed", limit)
+# sentiments = twitter_analyzer.sentiments
+# pprint(sentiments)
