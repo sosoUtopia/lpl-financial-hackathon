@@ -1,10 +1,16 @@
 from alpaca.trading.client import TradingClient
 from alpaca.trading.requests import MarketOrderRequest, GetOrdersRequest
 from alpaca.trading.enums import OrderSide, TimeInForce, QueryOrderStatus
+import configparser
 from pprint import pprint
+
+config = configparser.ConfigParser()
+config.read('api/config.ini')
+
+api_key = config["alpaca_trader"]["api_key"]
+api_key_secret = config["alpaca_trader"]["api_key_secret"]
+
 trading_client = TradingClient('PKQC3TFPFRRETRPNQ46H', '3FU0CyoxGTPhIah10CP0LWVg3ldDN8XCVvhcWPQV', paper=True)
-# account = trading_client.get_account()
-# pprint(account)
 
 def buyStock(stockName, quantity): 
    # preparing the orders
@@ -38,6 +44,4 @@ def sellStock(stockName, quantity):
                   order_data=market_order_data
                   )
 
-# orders that satisfy params
-# orders = trading_client.get_orders(filter=request_params)
-# pprint(orders)
+                  

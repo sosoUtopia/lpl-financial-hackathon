@@ -2,6 +2,7 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .reddit_analyzer import RedditAnalyzer
+from .twitter_analyzer import TwitterAnalyzer
 from .alpaca_test import buyStock, sellStock
 import datetime as dt
 
@@ -32,3 +33,9 @@ def sell(request, symbol):
     quantity = request.GET.get('qty', 1)
     sellStock(symbol, quantity)
     return Response(f'sold {symbol}')
+
+@api_view(['GET'])
+def twitter_search(request, pk):
+    analyzer = TwitterAnalyzer()
+    analyzer.analyze()
+    return Response(analyzer.sentiments)

@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import Card from "./components/Card";
 import CardsContainer from "./components/CardsContainer";
-import SearchBar from "./components/SearchBar";
+import RedditSearch from "./components/RedditSearch";
 import Header from "./components/Header";
+import TwitterSearch from "./components/TwitterSearch";
 
 function App() {
   //empty object is true!!
@@ -18,8 +19,6 @@ function App() {
     setData(data);
   }
 
-
-
   useEffect(() => {
     fetchData("wallstreetbets");
   }, []);
@@ -27,7 +26,8 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <SearchBar fetchData={fetchData}/>
+      <RedditSearch fetchData={fetchData}/>
+      {/* <TwitterSearch fetchData={fetchData}/> */}
       <CardsContainer>
         {data
           ? data.map((element: any) => (

@@ -3,7 +3,7 @@ import {InputBase} from '@mui/material';
 import {Typography} from '@mui/material';
 import './SearchBar.css'
 interface SearchBarProp{fetchData: (subreddit: string) => void}
-const SearchBar = ({fetchData}:SearchBarProp) =>{
+const RedditSearch = ({fetchData}:SearchBarProp) =>{
     const [query,setQuery] = useState('')
     return(
     <div className='searchbar'>
@@ -28,7 +28,6 @@ const SearchBar = ({fetchData}:SearchBarProp) =>{
         </div>
  
     </div>
-    
 )};
 
-export default SearchBar;
+export default RedditSearch;
